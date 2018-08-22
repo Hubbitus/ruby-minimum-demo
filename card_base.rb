@@ -1,6 +1,6 @@
 # Minimum Card class to show differences with CardComparable which will extend it
 # @see TestCard
-class CardMinimum
+class CardBase
   attr_accessor :suit
   attr_accessor :value
 

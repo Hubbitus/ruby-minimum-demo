@@ -1,6 +1,6 @@
-require_relative 'card_minimum'
+require_relative 'card_base'
 
-class CardComparable < CardMinimum
+class CardComparable < CardBase
   include Comparable
 
   def <=>(other)
