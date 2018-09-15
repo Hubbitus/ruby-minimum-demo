@@ -26,4 +26,17 @@ class TestCard < Test::Unit::TestCase
     # It for collection also works:
     assert_equal('[Card(suit:1, value:1), Card(suit:1, value:2), Card(suit:1, value:3)]', @cards.to_s)
   end
+
+  def test_array_compare
+    @a = [11, 4, 3, 11, 12].sort.reverse # [12, 11, 11, 4, 3]
+    @b = [13, 4, 5, 11, 5].sort.reverse # [13, 11, 5, 5, 4]
+
+    assert_equal([12, 11, 11, 4, 3], @a)
+    assert_equal([13, 11, 5, 5, 4],  @b)
+
+    # Где я косячу?
+    # @a.zip(@b).map{ |x, y| x > y } #=> [false, false, true, false, false]
+
+    assert_equal(@a.zip(@b).map{ |x, y| x > y }, [false, false, true, false, false])
+  end
 end
